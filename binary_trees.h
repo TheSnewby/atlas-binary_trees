@@ -25,8 +25,8 @@ typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
 void binary_tree_print(const binary_tree_t *);
-static int print_t(const binary_tree_t *, int, int, char **);
-static size_t _height(const binary_tree_t *);
+/* static int print_t(const binary_tree_t *, int, int, char **); */
+/* static size_t _height(const binary_tree_t *); */
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
