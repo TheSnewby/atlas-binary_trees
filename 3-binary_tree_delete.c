@@ -8,6 +8,7 @@
 void binary_tree_delete(binary_tree_t *tree)
 {
 	binary_tree_t *temp = NULL, *sacrifice = NULL;
+	char sacrifice_LR;
 
 	if (tree == NULL)
 		return;
@@ -15,21 +16,35 @@ void binary_tree_delete(binary_tree_t *tree)
 	temp = tree;
 	while (tree != NULL)
 	{
-		if (temp->left)
-			temp = temp->left;
-		else if (temp->right)
-			temp = temp->right;
-		else if (!temp->left && !temp->right)
+		if (temp->left) /* if left child exists */
 		{
-			if (temp == tree)
+			sacrifice_LR = 'l';
+			temp = temp->left;
+		}
+		else if (temp->right) /* if right child exists */
+		{
+			sacrifice_LR = 'r';
+			temp = temp->right;
+		}
+		else /* if neither exists */
+		{
+			if (temp == tree) /* if at root */
 			{
 				free(temp);
 				temp = NULL;
+				return;
 			}
 			sacrifice = temp;
 			temp = temp->parent;
-			free(sacrifice);
+			free(sacrifice); /* free node */
 			sacrifice = NULL;
+
+			/* set parent's child to NULL */
+			if (sacrifice_LR == 'l')
+				temp->left = NULL;
+			else if (sacrifice_LR == 'r')
+				temp->right = NULL;
+			sacrifice_LR = 'a';
 		}
 	}
 }
