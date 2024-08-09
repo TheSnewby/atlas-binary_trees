@@ -1,7 +1,8 @@
 # Prerequisites
 *.d
-3-main.c
 3
+9
+*main.c
 
 # Object files
 *.o
