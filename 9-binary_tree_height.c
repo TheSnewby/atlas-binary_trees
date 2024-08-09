@@ -33,5 +33,5 @@ size_t bth_helper(const binary_tree_t *tree, size_t height)
 		height_L = bth_helper(tree->left, 1 + height);
 	if (tree->right)
 		height_R = bth_helper(tree->right, 1 + height);
-	return (height_L > height_R ? height_L : height_R);
+	return (height_L >= height_R ? height_L : height_R);
 }
