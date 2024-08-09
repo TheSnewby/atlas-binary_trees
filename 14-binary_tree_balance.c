@@ -16,7 +16,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 /**
  * btb_helper - measures the height of a binary tree
- * @tree: root node of tree
+ * @tree: node of tree
  *
  * Return: height of tree, 0 if NULL
  */
@@ -33,7 +33,5 @@ size_t btb_helper(const binary_tree_t *tree)
 		height_r = btb_helper(tree->right);
 	height = height_l >= height_r ? height_l : height_r;
 
-	if (!tree->left && !tree->right)
-		return (height);
 	return (1 + height);
 }
