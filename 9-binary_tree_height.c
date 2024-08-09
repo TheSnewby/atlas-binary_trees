@@ -10,28 +10,18 @@ size_t bth_helper(const binary_tree_t *tree, size_t height);
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height = 0;
+	size_t height_l = 0, height_r = 0, height;
 
 	if (!tree)
 		return (0);
 
-	return (bth_helper(tree, height));
-}
-// probably don't need
-/**
- * bth_helper - recursive function to find height
- * @tree: node of tree
- * @height: height
- *
- * Return: height
- */
-size_t bth_helper(const binary_tree_t *tree, size_t height)
-{
-	size_t height_L = 0, height_R = 0;
-
 	if (tree->left)
-		height_L = bth_helper(tree->left, 1 + height);
+		height_l = binary_tree_height(tree->left);
 	if (tree->right)
-		height_R = bth_helper(tree->right, 1 + height);
-	return (height_L >= height_R ? height_L : height_R);
+		height_r = binary_tree_height(tree->right);
+	height = height_l >= height_r ? height_l : height_r;
+
+	if (!tree->left && !tree->right)
+		return (height);
+	return (1 + height);
 }
