@@ -11,7 +11,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (brb_helper(tree->left) - btb_helper(tree->right));
+	return (btb_helper(tree->left) - btb_helper(tree->right));
 }
 
 /**
