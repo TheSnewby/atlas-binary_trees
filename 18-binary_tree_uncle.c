@@ -1,5 +1,6 @@
 #include "binary_trees.h"
 
+binary_tree_t *btu_helper(binary_tree_t *grandparent, binary_tree_t *parent);
 /**
  * binary_tree_uncle - finds the uncle of a node
  * @node: node to look for uncle
