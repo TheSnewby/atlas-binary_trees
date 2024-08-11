@@ -12,8 +12,6 @@ int perfect_helper(const binary_tree_t *node, int height, int level_tracker);
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int found_leaf_depth = -1;
-
 	if (!tree)
 		return (0);
 
