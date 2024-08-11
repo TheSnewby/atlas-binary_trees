@@ -6,7 +6,7 @@ binary_tree_t *binary_tree_sibling_helper(binary_tree_t *parent,
  * binary_tree_sibling - finds the sibling of a node
  * @node: node
  *
- * Returns: pointer to sibling node, or NULL otherwise
+ * Return: pointer to sibling node, or NULL otherwise
  */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
