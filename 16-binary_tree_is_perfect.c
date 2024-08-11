@@ -19,12 +19,12 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 }
 
 /**
- * btip_helper - recursively checks for perfection
- * @tree: node on the tree
+ * perfect_helper - recursively checks for perfection
+ * @node: node on the tree
  * @height: lowest level of tree
  * @level_tracker: tracks current level away from root
  *
- * Returns 1 if perfect, otherwise 0
+ * Return: 1 if perfect, otherwise 0
  */
 int perfect_helper(const binary_tree_t *node, int height, int level_tracker)
 {
