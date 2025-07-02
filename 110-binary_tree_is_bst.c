@@ -45,15 +45,6 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	min = tree->n;
 	max = tree->n;
 
-	if (tree->left && (tree->left->n < tree->n))
-		min = tree->left->n;
-	else
-		return (0);
-	if (tree->right && (tree->right->n > tree->n))
-		max = tree->right->n;
-	else
-		return (0);
-
 	return (btib_recursive(tree, min, max));
 
 }
