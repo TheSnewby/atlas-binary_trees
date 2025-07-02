@@ -14,15 +14,15 @@ int btib_recursive(const binary_tree_t *tree, int min, int max)
 
 	if (tree->left)
 	{
-		if ((tree->left->n < tree->n) && (tree->left->n < max))
-			left_return = btib_recursive(tree->left, min, tree->left->n);
+		if ((tree->left->n < tree->n) && (tree->left->n > min))
+			left_return = btib_recursive(tree->left, min, tree->n);
 		else
 			return (0);
 	}
 	if (tree->right)
 	{
-		if ((tree->right->n > tree->n) && (tree->right->n > min))
-			right_return = btib_recursive(tree->right, tree->right->n, max);
+		if ((tree->right->n > tree->n) && (tree->right->n < max))
+			right_return = btib_recursive(tree->right, tree->n, max);
 		else
 			return (0);
 	}
@@ -42,13 +42,8 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	min = tree->n;
-	max = tree->n;
-
-	if (tree->left && (tree->left->n < tree->n))
-		min = tree->left->n;
-	if (tree->right && (tree->right->n > tree->n))
-		max = tree->right->n;
+	min = INT_MIN;
+	max = INT_MAX;
 
 	return (btib_recursive(tree, min, max));
 
