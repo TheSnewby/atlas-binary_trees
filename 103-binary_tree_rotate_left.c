@@ -8,19 +8,33 @@
  */
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 {
-	if (!tree)
+	binary_tree_t *oldrt, *newrt, *child, *grandparent;
+
+	if (!tree || !tree->right)
 		return (NULL);
 
-	tree->right->parent = tree->parent; /* assign old root's parent to new root's parent */
-	tree->parent = tree->right; /* assign old root's parent to new root */
+	oldrt = tree;
+	newrt = tree->right;
+	child = tree->right->left;
+	grandparent = tree->parent;
 
-	if (tree->right->left)
+	newrt->parent = grandparent; /* switch parents */
+	oldrt->parent = newrt;
+
+	if(grandparent) /* adjust grandparent's child */
 	{
-		tree->right->left->parent = tree; /* assign new root's L-child's parent to old root */
-		tree->right = tree->right->left; /* assign old root's R-child to new root's old L-child */
+		if (grandparent->left == oldrt)
+			grandparent->left = newrt;
+		else
+			grandparent->right = newrt;
 	}
 
-	tree->right->left = tree; /* change new root's left to old root */
+	oldrt->right = child; /* modify relationships with child */
+	if (child)
+		child->parent = oldrt;
 
-	return tree->parent;
+	newrt->left = oldrt;
+
+
+	return newrt;
 }
