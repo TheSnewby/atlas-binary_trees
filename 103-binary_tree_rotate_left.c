@@ -21,7 +21,7 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 	newrt->parent = grandparent; /* switch parents */
 	oldrt->parent = newrt;
 
-	if(grandparent) /* adjust grandparent's child */
+	if (grandparent) /* adjust grandparent's child */
 	{
 		if (grandparent->left == oldrt)
 			grandparent->left = newrt;
@@ -36,5 +36,5 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 	newrt->left = oldrt;
 
 
-	return newrt;
+	return (newrt);
 }
