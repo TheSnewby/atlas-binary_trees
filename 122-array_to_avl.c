@@ -9,7 +9,7 @@
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	int i;
+	size_t i;
 	avl_t *tree;
 
 	if (!array || size == 0)
