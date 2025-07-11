@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * avl_insert_balancer - balances during the avl_insert()
+ * avl_insert_balancer - balances during the bst_insert()
  * @tree: double pointer to a node
  * @value: value being added
  */
@@ -49,13 +49,13 @@ void avl_insert_balancer(avl_t **tree, int value)
 }
 
 /**
- * avl_insert - a function that inserts a vlaue in an AVL Tree
+ * bst_insert - a function that inserts a vlaue in an AVL Tree
  * @tree: double pointer to the root node
  * @value: value to be inserted
  *
  * Return: pointer to the created node, or NULL on failure
  */
-avl_t *avl_insert(avl_t **tree, int value)
+avl_t *bst_insert(avl_t **tree, int value)
 {
 	avl_t *new_node = NULL;
 
@@ -67,13 +67,13 @@ avl_t *avl_insert(avl_t **tree, int value)
 
 	if (value < (*tree)->n)
 	{
-		new_node = avl_insert(&((*tree)->left), value);
+		new_node = bst_insert(&((*tree)->left), value);
 		if (new_node && (*tree)->left)
 			(*tree)->left->parent = *tree;
 	}
 	else if (value > (*tree)->n)
 	{
-		new_node = avl_insert(&((*tree)->right), value);
+		new_node = bst_insert(&((*tree)->right), value);
 		if (new_node && (*tree)->right)
 			(*tree)->right->parent = *tree;
 	}
