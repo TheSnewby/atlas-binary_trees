@@ -1,7 +1,5 @@
 #include "binary_trees.h"
 
-#include "binary_trees.h"
-
 /**
  * bst_insert_balancer - balances during the bst_insert()
  * @tree: double pointer to a node
@@ -85,7 +83,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 	if (new_node == NULL)
 		return (NULL);
 
-	bst_insert_balancer(tree, value);
+	/* bst_insert_balancer(tree, value); */
 
 	return (new_node);
 }
